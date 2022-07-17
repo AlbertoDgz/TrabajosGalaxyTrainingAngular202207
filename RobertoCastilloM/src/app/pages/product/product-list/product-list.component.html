@@ -1,0 +1,33 @@
+<div class="card-header">
+  <h3 class="card-title">Listado de Productos</h3>
+</div>
+<button type="button" class="btn btn-primary" [routerLink]="['/pages/productcreate']">Adicionar</button>
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of products">
+      <th scope="row">{{item.id}}</th>
+      <th >{{item.name}}</th>
+      <th >{{item.price}}</th>
+      <th ><button type="button" class="btn btn-success" [routerLink]="['/pages/productedit', item.id]">Edit</button></th>
+      <th ><button type="button" class="btn btn-danger" (click)="deleteProducts(item.id)">Delete</button></th>
+    </tr>
+  </tbody>
+</table>
+
+<mat-paginator
+  [length]="totalReg"
+  [pageSize]="regXPag"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="handlePages($event)"
+  aria-label="Select page">
+</mat-paginator>
