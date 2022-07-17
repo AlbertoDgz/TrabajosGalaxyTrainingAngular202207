@@ -1,0 +1,30 @@
+<p>product-list works!</p>
+<button type="button" class="btn btn-primary" [routerLink]="['/pages/productcreate']">ADD</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of products">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td><button type="button" class="btn btn-primary" [routerLink]="['/pages/productedit',item.id]">EDIT</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteProduct(item.id)" >DELETE</button></td>
+        </tr>
+    </tbody>
+</table>
+<mat-paginator
+[length]="totalReg"
+[pageSize]="regXPag"
+[pageSizeOptions]="pageSizeOptions"
+(page)="handlePages($event)"
+aria-label="Select page"
+>
+</mat-paginator>
