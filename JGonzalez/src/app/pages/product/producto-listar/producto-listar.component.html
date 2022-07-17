@@ -1,0 +1,68 @@
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Lista de Productos</h3>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary" [routerLink]="['/pages/productocrear']">Agregar</button>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of products">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" [routerLink]="['/pages/productoeditar',item.id]">Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteProduct(item.id)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </tfoot>
+              </table>
+              
+              <mat-paginator
+                [length]="totalReg"
+                [pageSize]="regXPag"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="handlePages($event)"
+                aria-label="Select page"
+              >
+              </mat-paginator>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
