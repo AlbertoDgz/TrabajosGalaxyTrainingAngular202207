@@ -1,0 +1,32 @@
+<p>sale-edit works!</p>
+
+<span class="bagde badge-danger" *ngIf="submited && form.invalid">Los campos son obligatorios</span>
+
+<form [formGroup]="form" (ngSubmit)="updateSale()">
+  <div class="card-body">
+    <div class="form-group">
+      <label for="id">Id</label>
+      <input type="text" class="form-control" id="id" placeholder="Id" formControlName="id" />
+    </div>
+    <div class="form-group">
+      <label for="name">Date</label>
+      <input type="date" class="form-control" id="date" placeholder="Date" formControlName="date" />
+    </div>
+    <div class="form-group">
+      <label for="price">UnitPrice</label>
+      <input type="text" class="form-control" id="unitPrice" placeholder="UnitPrice" formControlName="unitPrice" />
+    </div>
+    <div class="form-group">
+      <label for="price">Quantity</label>
+      <input type="text" class="form-control" id="quantity" placeholder="Quantity" formControlName="quantity" />
+    </div>
+    <div class="form-group">
+      <label for="price">TotalPrice</label>
+      <input type="text" class="form-control" id="totalPrice" placeholder="TotalPrice" formControlName="totalPrice" />
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </div>
+</form>
