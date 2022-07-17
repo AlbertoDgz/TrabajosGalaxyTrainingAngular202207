@@ -1,0 +1,54 @@
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                Lista de Productos
+              </h3>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary" [routerLink]="['/pages/productscrear']">Agregar</button>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let item of listarproducts">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                      <a [routerLink]="['/pages/productseditar', item.id]" class="btn btn-sm btn-primary"> Ver detalles</a>
+                      <button class="btn  btn-sm btn-danger" type="button" (click)="onRemove(item.id)">Eliminar</button>
+                    </td>
+                  </tr>                  
+                </tbody>                            
+                <tfoot>
+                  <tr>
+                  </tr>
+                </tfoot>
+              </table>  
+            </div>
+           
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+  
